@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: finance-access-backend
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: finance-access-db
+          property: connectionString
+      - key: H2_CONSOLE_ENABLED
+        value: "false"
+      - key: APPLICATION_BOOTSTRAP_SEED_DATA
+        value: "true"
+
+databases:
+  - name: finance-access-db
+    plan: free

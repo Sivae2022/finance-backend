@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: ${H2_CONSOLE_ENABLED:true}
+      path: /h2-console
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+
+application:
+  bootstrap:
+    seed-data: ${APPLICATION_BOOTSTRAP_SEED_DATA:true}
